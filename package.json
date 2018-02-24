@@ -1,31 +1,12 @@
 {
-  "name": "insight-api-neetcoin",
+  "name": "insight-api-yajucoin",
   "description": "An open-source bitcoin blockchain API. The Insight API provides you with a convenient, powerful and simple way to query and broadcast data on the bitcoin network and build your own services with it.",
   "version": "0.2.18",
-  "repository": "https://github.com/NEETCOINTeam/insight-api-neetcoin.git",
-  "contributors": [{
-    "name": "Matias Alejo Garcia",
-    "email": "ematiu@gmail.com"
-  }, {
-    "name": "Manuel Araoz",
-    "email": "manuelaraoz@gmail.com"
-  }, {
-    "name": "Mario Colque",
-    "email": "colquemario@gmail.com"
-  }, {
-    "name": "Gustavo Cortez",
-    "email": "cmgustavo83@gmail.com"
-  }, {
-    "name": "Juan Ignacio Sosa Lopez",
-    "email": "bechilandia@gmail.com"
-  }, {
-    "name": "Ivan Socolsky",
-    "email": "jungans@gmail.com"
-  }],
+  "repository": "https://github.com/MissMonacoin/insight-api-yajucoin.git",
   "bugs": {
-    "url": "https://github.com/NEETCOINTeam/insight-api-neetcoin/issues"
+    "url": "https://github.com/MissMonacoin/insight-api-yajucoin/issues"
   },
-  "homepage": "https://github.com/NEETCOINTeam/insight-api-neetcoin",
+  "homepage": "https://github.com/MissMonacoin/insight-api-yajucoin",
   "license": "MIT",
   "keywords": [
     "insight",
@@ -47,7 +28,7 @@
     "async": "*",
     "base58-native": "0.1.4",
     "bignum": "*",
-    "bitcore": "git://github.com/NEETCOINTeam/bitcore-neetcoin.git",
+    "bitcore": "git://github.com/MissMonacoin/bitcore-yajucoin.git",
     "bufferput": "git://github.com/bitpay/node-bufferput.git",
     "buffertools": "*",
     "commander": "^2.3.0",
