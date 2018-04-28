@@ -58,8 +58,8 @@ var isMac = /^darwin/.test(process.platform);
 var isLinux = /^linux/.test(process.platform);
 if (!dataDir) {
   if (isWin) dataDir = '%APPDATA%\\yajucoin\\';
-  if (isMac) dataDir = process.env.HOME + '/Library/Application Support/yajucoin/';
-  if (isLinux) dataDir = process.env.HOME + '/.yajucoin/';
+  if (isMac) dataDir = process.env.HOME + '/Library/Application Support/yajucoin';
+  if (isLinux) dataDir = process.env.HOME + '/.yajucoin';
 }
 dataDir += network === 'testnet' ? 'testnet3' : '';
 
