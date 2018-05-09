@@ -203,8 +203,6 @@ Address.prototype._addTxItem = function(txItem, txList, includeInfo) {
 // .includeTxInfo
 // 
 Address.prototype.update = function(next, opts) {
-  console.log("Address this:",this)
-  console.log("Address opts:",opts)
   var self = this;
   if (!self.addrStr) return next();
   opts = opts || {};
@@ -233,7 +231,6 @@ Address.prototype.update = function(next, opts) {
   var bDb = BlockDb;
   tDb.fromAddr(self.addrStr, opts, function(err, txOut) {
     if (err) return next(err);
-    console.log("txOut:",txOut);
     bDb.fillConfirmations(txOut, function(err) {
       if (err) return next(err);
 
@@ -243,14 +240,11 @@ Address.prototype.update = function(next, opts) {
         if (opts.onlyUnspent) {
           
           var unspent = _.filter(txOut, function(x) {
-            console.log("looping transactions",x, !x.spendTxId);
             return !x.spentTxId;
           });
-          console.log("unspents:",unspent);
           tDb.fillScriptPubKey(unspent, function() {
             //_.filter will filterout unspend without scriptPubkey
             //(probably from double spends)
-            console.log("after filled:",unspent);
             self.unspent = unspent.map(function(x) {
               return {
                 address: self.addrStr,
