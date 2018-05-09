@@ -243,13 +243,15 @@ Address.prototype.update = function(next, opts) {
         if (opts.onlyUnspent) {
           
           var unspent = _.filter(txOut, function(x) {
+            console.log("looping transactions",x, !x.spendTxId);
             return !x.spentTxId;
           });
-
+          console.log("unspents:",unspent);
           tDb.fillScriptPubKey(unspent, function() {
             //_.filter will filterout unspend without scriptPubkey
             //(probably from double spends)
-            self.unspent = _.filter(unspent.map(function(x) {
+            console.log("after filled:",unspent);
+            self.unspent = unspent.map(function(x) {
               return {
                 address: self.addrStr,
                 txid: x.txid,
@@ -260,7 +262,7 @@ Address.prototype.update = function(next, opts) {
                 confirmations: x.isConfirmedCached ? (config.safeConfirmations) : x.confirmations,
                 confirmationsFromCache: !!x.isConfirmedCached,
               };
-            }), 'scriptPubKey');
+            })
 
             if (self.deadCacheEnable && txOut.length && !self.unspent.length) {
               // console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$    ',self.addrStr); //TODO
