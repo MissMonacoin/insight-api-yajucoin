@@ -232,7 +232,7 @@ Address.prototype.update = function(next, opts) {
   var tDb = TransactionDb;
   var bDb = BlockDb;
   tDb.fromAddr(self.addrStr, opts, function(err, txOut) {
-    if (err) return next(err);a
+    if (err) return next(err);
     console.log("txOut:",txOut);
     bDb.fillConfirmations(txOut, function(err) {
       if (err) return next(err);
