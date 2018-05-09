@@ -203,6 +203,8 @@ Address.prototype._addTxItem = function(txItem, txList, includeInfo) {
 // .includeTxInfo
 // 
 Address.prototype.update = function(next, opts) {
+  console.log("Address this:",this)
+  console.log("Address opts:",opts)
   var self = this;
   if (!self.addrStr) return next();
   opts = opts || {};
@@ -230,8 +232,8 @@ Address.prototype.update = function(next, opts) {
   var tDb = TransactionDb;
   var bDb = BlockDb;
   tDb.fromAddr(self.addrStr, opts, function(err, txOut) {
-    if (err) return next(err);
-
+    if (err) return next(err);a
+    console.log("txOut:",txOut);
     bDb.fillConfirmations(txOut, function(err) {
       if (err) return next(err);
 
@@ -239,7 +241,7 @@ Address.prototype.update = function(next, opts) {
         // console.log('[Address.js.161:txOut:]',txOut); //TODO
         if (err) return next(err);
         if (opts.onlyUnspent) {
-
+          
           var unspent = _.filter(txOut, function(x) {
             return !x.spentTxId;
           });
